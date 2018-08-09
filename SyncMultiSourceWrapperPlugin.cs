@@ -2,6 +2,7 @@
 using Sync.Source;
 using Sync.Tools;
 using Sync.Tools.ConfigurationAttribute;
+using SyncMultiSourceWrapperPlugin.Filter;
 using SyncMultiSourceWrapperPlugin.Source;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,16 @@ namespace SyncMultiSourceWrapperPlugin
 
             EventBus.BindEvent<PluginEvents.LoadCompleteEvent>(OnLoadComplete);
             EventBus.BindEvent<PluginEvents.InitSourceEvent>(OnInitSource);
+            EventBus.BindEvent<PluginEvents.InitFilterEvent>(OnInitFilter);
+        }
+
+        private void OnInitFilter(PluginEvents.InitFilterEvent e)
+        {
+            if (Setting.Instance.MarkSource.ToBool())
+            {
+                Log.Output("add SourceUserMarkFilter filter.");
+                e.Filters.AddFilter(new SourceUserMarkFilter());
+            }
         }
 
         private void OnInitSource(PluginEvents.InitSourceEvent e)

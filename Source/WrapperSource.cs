@@ -101,7 +101,7 @@ namespace SyncMultiSourceWrapperPlugin.Source
             {
                 var list = new List<SendableSource>();
 
-                var s = (managed_sources.Count>index?managed_sources.AsEnumerable().ElementAt(2):null) as SendableSource;
+                var s = (managed_sources.Count>index?managed_sources.AsEnumerable().ElementAt(index) :null) as SendableSource;
                 if (s != null)
                     list.Add(s);
                 source = list;

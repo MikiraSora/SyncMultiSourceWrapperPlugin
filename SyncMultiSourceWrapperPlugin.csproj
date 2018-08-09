@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Filter\SourceUserMarkFilter.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Setting.cs" />
     <Compile Include="Source\WrapperSource.cs" />

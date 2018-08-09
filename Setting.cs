@@ -1,5 +1,7 @@
-﻿using Sync.Tools;
+﻿using Sync;
+using Sync.Tools;
 using Sync.Tools.ConfigurationAttribute;
+using SyncMultiSourceWrapperPlugin.Filter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,10 @@ namespace SyncMultiSourceWrapperPlugin
         public ConfigurationElement SourceList { get; set; } = "bilibili,twitch";
 
         [Bool]
-        public ConfigurationElement DebugMode { get; set; }
+        public ConfigurationElement DebugMode { get; set; } = "false";
+
+        [Bool]
+        public ConfigurationElement MarkSource { get; set; } = "true";
 
         public static Setting Instance { get; } = new Setting();
 
